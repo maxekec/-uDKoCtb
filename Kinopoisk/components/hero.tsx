@@ -1,5 +1,6 @@
 import VideoThumb from '@/public/images/hero-image-01.jpg'
 import ModalVideo from '@/components/modal-video'
+import Link from 'next/link'
 
 export default function Hero() {
   return (
@@ -30,9 +31,11 @@ export default function Hero() {
               <div data-aos="fade-up" data-aos-delay="400">
                 <a className="btn text-white bg-purple-600 hover:bg-purple-700 w-full mb-4 sm:w-auto sm:mb-0" href="#0">Подписка на кино за 1 рубль!</a>
               </div>
-              <div data-aos="fade-up" data-aos-delay="600">
-                <a className="btn text-white bg-gray-700 hover:bg-gray-800 w-full sm:w-auto sm:ml-4" href="#0">Узнать больше</a>
-              </div>
+              <li>
+                <Link href="/learnout" className="btn-sm text-white bg-purple-600 hover:bg-purple-700 ml-3">
+                  Узнать больше
+                </Link>
+              </li>
             </div>
           </div>
 
