@@ -2,7 +2,7 @@
 
 
 export const metadata = {
-    title: 'Sign Up - Open PRO',
+    title: 'Кинопоиск',
     description: 'Page description',
 }
 
