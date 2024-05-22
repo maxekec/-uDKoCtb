@@ -31,11 +31,11 @@ export default function Hero() {
               <div data-aos="fade-up" data-aos-delay="400">
                 <a className="btn text-white bg-purple-600 hover:bg-purple-700 w-full mb-4 sm:w-auto sm:mb-0" href="#0">Подписка на кино за 1 рубль!</a>
               </div>
-              <li>
-                <Link href="/learnout" className="btn-sm text-white bg-purple-600 hover:bg-purple-700 ml-3">
-                  Узнать больше
+              <div data-aos="fade-up" data-aos-delay="400">
+                <Link href="/learnout" className="btn text-white bg-purple-600 hover:bg-purple-700 w-full mb-4 sm:w-auto sm:mb-0">
+                  Узнать больше о нашем кино
                 </Link>
-              </li>
+                </div>
             </div>
           </div>
 
