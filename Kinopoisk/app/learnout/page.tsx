@@ -1,7 +1,6 @@
-export const metadata = {
-    title: 'Кинопоиск',
-    description: 'Page description',
-};
+"use client";
+
+import { useState } from 'react';
 
 export default function SignUp() {
     const movies = [
@@ -11,7 +10,7 @@ export default function SignUp() {
             year: "2017",
             rating: "7.4/10 IMDb",
             imageUrl: "https://upload.wikimedia.org/wikipedia/en/f/f9/Spider-Man_Homecoming_poster.jpg",
-            link: "https://www.kinopoisk.ru/film/690593/"
+            link: "https://www.kinopoisk.ru/film/841081/"
         },
         {
             title: "Мстители: Финал",
@@ -55,6 +54,16 @@ export default function SignUp() {
         }
     ];
 
+    const [videoSrc, setVideoSrc] = useState<string | null>(null);
+
+    const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const file = event.target.files?.[0];
+        if (file) {
+            const videoURL = URL.createObjectURL(file);
+            setVideoSrc(videoURL);
+        }
+    };
+
     return (
         <section className="relative">
             <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -63,7 +72,7 @@ export default function SignUp() {
                     <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
                         <h1 className="h1">Карточки фильмов</h1>
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
                         {movies.map((movie, index) => (
                             <a
                                 key={index}
@@ -92,6 +101,26 @@ export default function SignUp() {
                             </a>
                         ))}
                     </div>
+                    <div className="text-center mb-8">
+                        <input
+                            type="file"
+                            accept="video/mp4"
+                            onChange={handleFileUpload}
+                            className="hidden"
+                            id="upload-video"
+                        />
+                        <label htmlFor="upload-video" className="btn text-white bg-purple-600 hover:bg-purple-700 cursor-pointer">
+                            Загрузить видео
+                        </label>
+                    </div>
+                    {videoSrc && (
+                        <div className="max-w-3xl mx-auto">
+                            <video controls className="w-full">
+                                <source src={videoSrc} type="video/mp4" />
+                                Ваш браузер не поддерживает видео тег.
+                            </video>
+                        </div>
+                    )}
                 </div>
             </div>
         </section>
